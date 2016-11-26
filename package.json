@@ -1,0 +1,33 @@
+{
+  "name": "project_name_picker",
+  "version": "1.0.0",
+  "description": "help you pick a project name",
+  "main": "index.js",
+  "scripts": {
+    "dev": "budo src/app.js --open --live -- -t babelify",
+    "build": "NODE_ENV=production browserify -e src/app.js -g babelify -g envify -g unassertify -g uglifyify | uglifyjs > app.js"
+  },
+  "author": "tcode",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "choo": "^3.3.0",
+    "envify": "^3.4.1",
+    "uglifyify": "^3.0.4",
+    "uglifyjs": "^2.4.10",
+    "unassertify": "^2.0.3"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  }
+}
